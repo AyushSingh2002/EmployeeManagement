@@ -13,6 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity Class for Project Entity
+ */
+
 @Entity
 @Table(name = "projects")
 @NoArgsConstructor

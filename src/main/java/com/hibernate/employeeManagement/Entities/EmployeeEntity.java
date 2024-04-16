@@ -17,6 +17,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity class for Employee Entity
+ */
+
 @Entity
 @Table(name = "employees")
 @NoArgsConstructor
