@@ -11,24 +11,43 @@ import org.springframework.stereotype.Service;
 import com.hibernate.employeeManagement.Entities.EmployeeEntity;
 import com.hibernate.employeeManagement.Repositories.EmployeeRepository;
 
+/**
+ * Service Class for Employee Controller
+ */
+
 @Service
 public class EmployeeService 
 {
   @Autowired
   EmployeeRepository empRepo;
 
+  /**
+   * Method to add employee into employee repository
+   * @param employee
+   * @return ResponseEntiy<String>
+   */
   public ResponseEntity<String> addEmployee(EmployeeEntity employee)
   {
     empRepo.save(employee);
     return new ResponseEntity<>("Employee details added to database!", HttpStatus.OK);
   }
 
+  /**
+   * Method to fetch all employees from employee repository
+   * @return ResponseEntity<List<EmployeeEntity>>
+   */
   public ResponseEntity<List<EmployeeEntity>> getAllEmployees()
   {
     List<EmployeeEntity> employees = empRepo.findAll();
     return new ResponseEntity<>(employees, HttpStatus.OK);
   }
 
+  /**
+   * Method to update existing employee in employee repository
+   * @param id
+   * @param updatedEmployee
+   * @return ResponseEntity<String>
+   */
   public ResponseEntity<String> updateById(Long id, EmployeeEntity updatedEmployee)
   {
     Optional<EmployeeEntity> optionalEmployee = empRepo.findById(id);
@@ -51,6 +70,11 @@ public class EmployeeService
     }
   }
 
+  /**
+   * Method to delete existing employee from Employee Repository
+   * @param id
+   * @return ResponseEntity<String>
+   */
   public ResponseEntity<String> deleteById(Long id)
   {
     Optional<EmployeeEntity> optionalEmployee = empRepo.findById(id);

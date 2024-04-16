@@ -11,24 +11,43 @@ import org.springframework.stereotype.Service;
 import com.hibernate.employeeManagement.Entities.ProjectEntity;
 import com.hibernate.employeeManagement.Repositories.ProjectRepository;
 
+/**
+ * Service Class for Project Controller
+ */
+
 @Service
 public class ProjectService 
 {
   @Autowired
   ProjectRepository projectRepo;
 
+  /**
+   * Method to add project into Project Repository
+   * @param project
+   * @return ResponseEntity<String>
+   */
   public ResponseEntity<String> addProject(ProjectEntity project)
   {
     projectRepo.save(project);
     return new ResponseEntity<>("Project added to database!", HttpStatus.OK);
   }
 
+  /**
+   * Method to fetch all projects from Project Repository
+   * @return ResponseEntity<List<ProjectEntity>>
+   */
   public ResponseEntity<List<ProjectEntity>> getAllProjects()
   {
     List<ProjectEntity> projects = projectRepo.findAll();
     return new ResponseEntity<>(projects, HttpStatus.OK);
   }
 
+  /**
+   * Method to update existing project in Project Repository
+   * @param id
+   * @param updatedProject
+   * @return ResponseEntity<String>
+   */
   public ResponseEntity<String> updateById(Long id, ProjectEntity updatedProject)
   {
     Optional<ProjectEntity> optionalProject = projectRepo.findById(id);
@@ -48,6 +67,11 @@ public class ProjectService
     }
   }
 
+  /**
+   * Method to delete existing project from Project Repository
+   * @param id
+   * @return ResponseEntity<String>
+   */
   public ResponseEntity<String> deleteById(Long id)
   {
     Optional<ProjectEntity> optionalProject = projectRepo.findById(id);
