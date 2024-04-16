@@ -12,7 +12,7 @@ import com.hibernate.employeeManagement.Entities.ProjectEntity;
 import com.hibernate.employeeManagement.Repositories.ProjectRepository;
 
 /**
- * Service Class for Project Controller
+ * Service Class for ProjectController
  */
 
 @Service
@@ -23,8 +23,8 @@ public class ProjectService
 
   /**
    * Method to add project into Project Repository
-   * @param project
-   * @return ResponseEntity<String>
+   * @param project The project entity to be added
+   * @return ResponseEntity - A response indicating the status of operation
    */
   public ResponseEntity<String> addProject(ProjectEntity project)
   {
@@ -34,7 +34,7 @@ public class ProjectService
 
   /**
    * Method to fetch all projects from Project Repository
-   * @return ResponseEntity<List<ProjectEntity>>
+   * @return ResponseEntity - A response containing List of Project Entities in the response body
    */
   public ResponseEntity<List<ProjectEntity>> getAllProjects()
   {
@@ -44,9 +44,9 @@ public class ProjectService
 
   /**
    * Method to update existing project in Project Repository
-   * @param id
-   * @param updatedProject
-   * @return ResponseEntity<String>
+   * @param id The id of the project to be updated
+   * @param updatedProject The updated project body
+   * @return ResponseEntity - A reponse indicating the status of operation
    */
   public ResponseEntity<String> updateById(Long id, ProjectEntity updatedProject)
   {
@@ -69,8 +69,8 @@ public class ProjectService
 
   /**
    * Method to delete existing project from Project Repository
-   * @param id
-   * @return ResponseEntity<String>
+   * @param id The id of project to be deleted
+   * @return ResponseEntity - A response indicating the status of operation
    */
   public ResponseEntity<String> deleteById(Long id)
   {
